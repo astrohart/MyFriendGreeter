@@ -35,7 +35,17 @@ namespace MyFriendGreeter
 
             Console.Clear();
 
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "Program.Main: Instantiating DI container builder..."
+            );
+
             var builder = new ContainerBuilder();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "Program.Main: Registering greeting strategies..."
+            );
 
             // Register greeting strategies
             builder.RegisterType<EnglishGreetingStrategy>()
@@ -45,37 +55,91 @@ namespace MyFriendGreeter
             builder.RegisterType<SpanishGreetingStrategy>()
                    .Keyed<IGreetingStrategy>(Language.Spanish);
 
-            builder.Register(c =>
-            {
-                var context = c.Resolve<IComponentContext>();
-                return new GreetingStrategyFactory(GetStrategyCreators(context));
-            }).As<IGreetingStrategyFactory>();
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "Program.Main: Registering greeting strategy factory..."
+            );
+
+            builder.Register(
+                       c =>
+                       {
+                           var context = c.Resolve<IComponentContext>();
+                           return new GreetingStrategyFactory(
+                               GetStrategyCreators(context)
+                           );
+                       }
+                   )
+                   .As<IGreetingStrategyFactory>();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info, "Program.Main: Reading configuration file..."
+            );
 
             // Read friends and their languages from JSON configuration file
-            var friends = ReadFriendsFromJson(
-                Path.Combine(
-                    Path.GetDirectoryName(
-                        Assembly.GetExecutingAssembly()
-                                .Location
-                    ), "friends.json"
-                )
+            var configFilePath = Path.Combine(
+                Path.GetDirectoryName(
+                    Assembly.GetExecutingAssembly()
+                            .Location
+                ), "friends.json"
             );
+            var friends = ReadFriendsFromJson(configFilePath);
+
+            if (friends != null && friends.Count > 0)
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"Program.Main: *** SUCCESS *** {friends.Count} friend(s) read from file '{configFilePath}'."
+                );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"Program.Main: Registering the 'friends' variable in the DI container..."
+            );
+
             builder.RegisterInstance(friends)
                    .As<IList<Friend>>();
 
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"Program.Main: Registering the greeting service..."
+            );
+
             // Register the GreetingService
-            builder.RegisterType<GreetingService>().AsSelf();
+            builder.RegisterType<GreetingService>()
+                   .AsSelf();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info, $"Program.Main: Initializing the DI container..."
+            );
 
             // Build the container
             using (var container = builder.Build())
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"Program.Main: Beginning the lifetime scope..."
+                );
+
                 // Resolve and run the service
                 using (var scope = container.BeginLifetimeScope())
                 {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"Program.Main: Resolving greeting service..."
+                    );
+
                     var greetingService = scope.Resolve<GreetingService>();
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info, $"Program.Main: Greeting my friends..."
+                    );
+
                     greetingService.GreetFriends();
                 }
             }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info, $"Program.Main: *** DONE ***"
+            );
 
             Console.ReadKey();
         }
