@@ -33,6 +33,8 @@ namespace MyFriendGreeter
                 applicationName: Get.ApplicationProductName()
             );
 
+            Console.Clear();
+
             var builder = new ContainerBuilder();
 
             // Register greeting strategies
@@ -65,6 +67,9 @@ namespace MyFriendGreeter
             builder.RegisterInstance(friends)
                    .As<IList<Friend>>();
 
+            // Register the GreetingService
+            builder.RegisterType<GreetingService>().AsSelf();
+
             // Build the container
             using (var container = builder.Build())
             {
@@ -75,6 +80,8 @@ namespace MyFriendGreeter
                     greetingService.GreetFriends();
                 }
             }
+
+            Console.ReadKey();
         }
 
         private static IDictionary<Language, Func<IGreetingStrategy>>
