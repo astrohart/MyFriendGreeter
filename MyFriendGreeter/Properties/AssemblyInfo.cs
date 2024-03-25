@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("This is a little console application for greeting my friends, whose names are Jill, Bob, and Alice, and who speak different languages, each in their own language.  This application was developed as a way of learning the Autofac DI container and using the Composition Root pattern for the very first time in my career, as a learning exercise.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Friend Greeter Example")]
+[assembly: AssemblyProduct("xyLOGIX Friend Greeter Sample")]
 [assembly: AssemblyCopyright("Copyright © 2024 by xyLOGIX, LLC.  All rights reserved.")]
-[assembly: AssemblyTrademark("This software component is a part of the xyLOGIX Friend Greeter Example software system.  Friend Greeter Example is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.  All other trademarks appearing in this software system's code or its user interface belong to their respective owners.")]
+[assembly: AssemblyTrademark("This software component is a part of the xyLOGIX Friend Greeter Sample software system.  Friend Greeter Sample is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.  All other trademarks appearing in this software system's code or its user interface belong to their respective owners.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
