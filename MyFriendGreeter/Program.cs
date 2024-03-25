@@ -92,7 +92,7 @@ namespace MyFriendGreeter
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"Program.Main: Registering the 'friends' variable in the DI container..."
+                "Program.Main: Registering the 'friends' variable in the DI container..."
             );
 
             builder.RegisterInstance(friends)
@@ -100,7 +100,7 @@ namespace MyFriendGreeter
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"Program.Main: Registering the greeting service..."
+                "Program.Main: Registering the greeting service..."
             );
 
             // Register the GreetingService
@@ -108,7 +108,8 @@ namespace MyFriendGreeter
                    .AsSelf();
 
             DebugUtils.WriteLine(
-                DebugLevel.Info, $"Program.Main: Initializing the DI container..."
+                DebugLevel.Info,
+                "Program.Main: Initializing the DI container..."
             );
 
             // Build the container
@@ -116,7 +117,7 @@ namespace MyFriendGreeter
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"Program.Main: Beginning the lifetime scope..."
+                    "Program.Main: Beginning the lifetime scope..."
                 );
 
                 // Resolve and run the service
@@ -124,22 +125,20 @@ namespace MyFriendGreeter
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        $"Program.Main: Resolving greeting service..."
+                        "Program   .Main: Resolving greeting service..."
                     );
 
                     var greetingService = scope.Resolve<GreetingService>();
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Info, $"Program.Main: Greeting my friends..."
+                        DebugLevel.Info, "Program.Main: Greeting my friends..."
                     );
 
                     greetingService.GreetFriends();
                 }
             }
 
-            DebugUtils.WriteLine(
-                DebugLevel.Info, $"Program.Main: *** DONE ***"
-            );
+            DebugUtils.WriteLine(DebugLevel.Info, "Program.Main: *** DONE ***");
 
             Console.ReadKey();
         }
