@@ -18,13 +18,8 @@ namespace MyFriendGreeter
         /// <summary>
         /// The entry point of the application.
         /// </summary>
-        /// <param name="args">
-        /// (Required.) Array of <see cref="T:System.String" /> entries,
-        /// each of which is a command-line argument that has been passed to the
-        /// application.
-        /// </param>
         [STAThread]
-        public static void Main(string[] args)
+        public static void Main()
         {
             LogFileManager.InitializeLogging(
                 muteConsole: false,
