@@ -18,7 +18,7 @@
   - [ApplicationProductName()](#M-MyFriendGreeter-Program-Get-ApplicationProductName 'MyFriendGreeter.Program.Get.ApplicationProductName')
   - [LogFilePath()](#M-MyFriendGreeter-Program-Get-LogFilePath 'MyFriendGreeter.Program.Get.LogFilePath')
 - [Program](#T-MyFriendGreeter-Program 'MyFriendGreeter.Program')
-  - [Main(args)](#M-MyFriendGreeter-Program-Main-System-String[]- 'MyFriendGreeter.Program.Main(System.String[])')
+  - [Main()](#M-MyFriendGreeter-Program-Main 'MyFriendGreeter.Program.Main')
 
 <a name='T-MyFriendGreeter-ConvertFriends'></a>
 ## ConvertFriends `type`
@@ -227,8 +227,8 @@ MyFriendGreeter
 
 Defines the behaviors of the application.
 
-<a name='M-MyFriendGreeter-Program-Main-System-String[]-'></a>
-### Main(args) `method`
+<a name='M-MyFriendGreeter-Program-Main'></a>
+### Main() `method`
 
 ##### Summary
 
@@ -236,8 +236,4 @@ The entry point of the application.
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| args | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | (Required.) Array of [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') entries,
-each of which is a command-line argument that has been passed to the
-application. |
+This method has no parameters.
