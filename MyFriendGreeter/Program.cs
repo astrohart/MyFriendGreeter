@@ -45,15 +45,11 @@ namespace MyFriendGreeter
             builder.RegisterType<SpanishGreetingStrategy>()
                    .Keyed<IGreetingStrategy>(Language.Spanish);
 
-            // Register greeting strategy factory
-            builder.Register(
-                       ctx =>
-                       {
-                           var strategyCreators = GetStrategyCreators(ctx);
-                           return new GreetingStrategyFactory(strategyCreators);
-                       }
-                   )
-                   .As<IGreetingStrategyFactory>();
+            builder.Register(c =>
+            {
+                var context = c.Resolve<IComponentContext>();
+                return new GreetingStrategyFactory(GetStrategyCreators(context));
+            }).As<IGreetingStrategyFactory>();
 
             // Read friends and their languages from JSON configuration file
             var friends = ReadFriendsFromJson(
