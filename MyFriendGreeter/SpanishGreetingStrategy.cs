@@ -1,4 +1,4 @@
-﻿namespace MyFriendGreeter
+namespace MyFriendGreeter
 {
     public class SpanishGreetingStrategy : IGreetingStrategy
     {
