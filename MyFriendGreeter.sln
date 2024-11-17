@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Logging.Constants", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Logging.Events", "..\Core.Logging\Core.Logging.Events\Core.Logging.Events.csproj", "{3D09E304-2AFC-4B9D-8BF5-A0DF7991B1DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Assemblies.Info", "..\Core.Assemblies.Info\Core.Assemblies.Info\Core.Assemblies.Info.csproj", "{69827DE2-40A0-4471-BBA8-E2211C7D5ED7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Assemblies.Info", "..\Core.Assemblies.Info.VS2019\Core.Assemblies.Info\Core.Assemblies.Info.csproj", "{69827DE2-40A0-4471-BBA8-E2211C7D5ED7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
