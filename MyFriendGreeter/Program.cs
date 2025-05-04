@@ -21,7 +21,7 @@ namespace MyFriendGreeter
         [STAThread]
         public static void Main()
         {
-            LogFileManager.InitializeLogging(
+            LoggingSubsystemManager.InitializeLogging(
                 muteConsole: false,
                 infrastructureType: LoggingInfrastructureType.PostSharp,
                 logFileName: Get.LogFilePath(),
