@@ -2,7 +2,7 @@
 {
     public interface IGreetingStrategy
     {
-        Language Language { get; }
+        Language Language { [DebuggerStepThrough] get; }
 
         string Greet(string name);
     }
