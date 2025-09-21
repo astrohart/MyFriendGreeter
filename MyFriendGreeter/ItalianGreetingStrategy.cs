@@ -2,7 +2,7 @@
 {
     public class ItalianGreetingStrategy : IGreetingStrategy
     {
-        public Language Language { get; } = Language.Italian;
+        public Language Language { [DebuggerStepThrough] get; } = Language.Italian;
 
         public string Greet(string name)
             => $"Ciao, mondo, {name}!";
