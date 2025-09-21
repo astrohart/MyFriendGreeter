@@ -26,8 +26,8 @@ namespace MyFriendGreeter
         [Log(AttributeExclude = true)]
         public Friend() { }
 
-        [JsonProperty("Language")] public Language Language { get; set; }
+        [JsonProperty("Language")] public Language Language { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
-        [JsonProperty("Name")] public string Name { get; set; }
+        [JsonProperty("Name")] public string Name { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
     }
 }
