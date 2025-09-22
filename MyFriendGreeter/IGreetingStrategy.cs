@@ -1,4 +1,5 @@
-﻿namespace MyFriendGreeter
+﻿using System.Diagnostics;
+namespace MyFriendGreeter
 {
     public interface IGreetingStrategy
     {
