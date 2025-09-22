@@ -1,4 +1,5 @@
-﻿using Core.Logging;
+﻿using System.Diagnostics;
+using Core.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using PostSharp.Patterns.Diagnostics;
